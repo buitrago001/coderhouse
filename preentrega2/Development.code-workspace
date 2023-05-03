@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "Development",
+			"path": "../../.."
+		},
+		{
+			"name": "sidebars",
+			"path": "../../../../../Downloads/bootstrap-5.0.2-examples/sidebars"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Development"
+	}
+}

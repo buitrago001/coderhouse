@@ -1,0 +1,17 @@
+* {
+    padding: 0;
+    margin: 20px;
+    font-family: sans-serif;
+}
+
+body {
+    text-align: center;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+p{
+    font-size: 20px;
+}
