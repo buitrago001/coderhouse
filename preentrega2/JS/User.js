@@ -16,24 +16,29 @@ class User {
         this.role = role;
     }
 
-    newUser = (userInformation) => {
-        for (i = 0; i<userInformation.length; i++)
-        {
-            this.firstName = userInformation[i]
-        }
+    createUser = (userInformation) => {
+        // todo adjust function/method to work with a array of object
+        const newUser = Object.fromEntries(userInformation);
+        return newUser;
     }
 
     deleteUser = (email) =>{
-
+// todo pending to create and test function
     }
 
-    searchUser = (email, password) => {
-        // search function within the object array
-        return false;
+    userSearch = (email, userArray) => { // function for individual object
+        // todo adjust function/method to work with a array of object
+        // let userArray = Object.values(user);
+        // if(email == userArray[3]) {
+        //     return true;
+        // } else{
+        //     return false;
+        // }
     }
 
-    userType = (userName) =>{
+    userType = (user) =>{
         // search if userName is client or employee
-        return 'empleado';
+        let userArray = Object.values(user);
+            return userArray[5];
     }
 }

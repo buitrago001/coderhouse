@@ -6,6 +6,7 @@ let searchValidator; //verifies if user exist
 let type; // user type employee or client
 let userName;
 let password;
+ // array that store user information from the array of objects to validate existing user
 
 
 // menu variables
@@ -16,8 +17,7 @@ const historyMenu = ['Contultar', 'Agregar'];
 const menu = ['Consultar Productos Disponibles', 'Consultar Productos Bajos', 'Producto sin inventario', 'pre-ingreso de inventario', 'ingreso de inventario', 'confirmar ingreso inventario', 'actualizar inventario', 'Buscar Productos'];
 
 // object
-const user = new User();
-// const user = [new User ('clientName', 'clientLastName', 30400000, 'clienteemail@email.com', 123456, 'cliente'), new User ('employeeName', 'employeeLastName', 3000000, 'empleadoemail@email.com', 123456, 'empleado')];
+const userObjectArray = [new User ('clientName', 'clientLastName', 30400000, 'clienteemail@email.com', 123456, 'cliente'), new User ('employeeName', 'employeeLastName', 3000000, 'empleadoemail@email.com', 123456, 'empleado')];
 
 // funtions
 function initialMenu(){
@@ -30,7 +30,24 @@ function logIn() // option 1 from initial Menu
     do{
         userName = prompt ('Por favor ingrese su ' + logInMenu[0]);
         password = prompt ('Por favor ingrese su ' + logInMenu[1]);
-        searchValidator = user.searchUser(userName, password);
+        let userSearch =  [];
+
+        for(let i = 0; i<userObjectArray.length; i++){
+            userSearch.push(userObjectArray[i].email);
+        }
+
+        for(let i = 0; i<userObjectArray.length; i++ )
+        {
+            if(userObjectArray[i].email == userName){
+                searchValidator = true
+                type = userObjectArray[i].role
+                i = userObjectArray.length;
+            }else 
+            {
+                searchValidator = false;
+            }
+        }
+
         if(searchValidator == false) {
             option = Number(prompt ('Usuario o contraseña incorrecto, presione 1 si desea reintentar o 0 para salir?'));
             if(option == 0){
@@ -42,7 +59,7 @@ function logIn() // option 1 from initial Menu
         return option;
     }
     else{
-        return option = mainMenu(type = user.userType(userName));
+        mainMenu(type);
     }
     
     
@@ -50,28 +67,37 @@ function logIn() // option 1 from initial Menu
 
 function signUp (){
     registerCounter = 0;
-    newUser = []; // start array empty
-    while (registerCounter < registerOptions.length){
+    newUser = []; // start array empty, array to gather all information to create the user object
+    while (registerCounter < registerOptions.length){ // store all data in an array
         newUser.push(prompt ('Complete la siguiente information \n Ingrese :' + '\n' + registerOptions[registerCounter]));
         registerCounter ++;
-        console.log(newUser);
+        if(registerCounter == registerOptions-1){
+            newUser[5] = 'cliente'
+        }
     }
-    userType = 'cliente';
-    option = mainMenu(userType);
+    console.log(newUser);
+    const userObject = Object.values(newUser) // convert the array into an object
+    userObjectArray.push(userObject); // add the new object to the array of object
+    type = 'cliente';
+    option = mainMenu(type);
     return option;
 }
 
 function mainMenu(type){
-    console.log (type);
+    
     while (option != 0)
     {
     if(type == 'cliente')
     {
-        option = Number(prompt('Seleccione la opcion que desea realizar \n' + menu[0] + "\n" + menu[1] + "\n" + menu[2] + "\n" + menu[3] + "\n" + menu[7]));
+        option = Number(prompt('Seleccione la opcion que desea realizar \n' + '1' + menu[0] + "\n" + '2' + menu[1] + "\n" + '3' + menu[2] + "\n" + '4' + menu[3] + "\n" + '5' + menu[7]));
+        alert ("Gracias, estamos trabajando para tener las opciones disponibles");
+        opcion = 0
     }
     else
     {
-        option = Number ( prompt('Seleccione la opcion que desea realizar \n' + menu[0] + "\n" + menu[1] + "\n" + menu[2] + "\n" + menu[4] + "\n" + menu[5] + "\n" + menu[6] + "\n" + menu[7]));
+        option = Number ( prompt('Seleccione la opcion que desea realizar \n' + '1' + menu[0] + "\n" + '2' + menu[1] + "\n" + '3' + menu[2] + "\n" + '4' + menu[4] + "\n" + '5' + menu[5] + "\n" + '6' + menu[6] + "\n" + '7' + menu[7]));
+        alert ("Gracias, estamos trabajando para tener las opciones disponibles");
+        opcion = 0
     }
     }
     return option = 0;
