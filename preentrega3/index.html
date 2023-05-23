@@ -17,12 +17,12 @@
 </head>
 <body>
     <header>
-        <h2 class="logo">Logo</h2>
+        <h2 class="logo">AB</h2>
         <nav class="navBar">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Contact</a>
+            <a href="#">Inicio</a>
+            <a href="#">Acerca</a>
+            <a href="#">Servicios</a>
+            <a href="#">Contacto</a>
             <button class="btnLogin-popup">Login</button>
         </nav>
     </header>
@@ -32,25 +32,25 @@
     <!--login form-->
         <div class="form-box login">
             <h2>Login</h2>
-            <form action="#">
+            <form action="#" id="loginForm">
                 <div class="input-box">
                     <i class="bi bi-envelope-fill"></i>
-                    <input type="email" required>
+                    <input type="email" required id="login-user">
                     <label for="email">email</label>
                 </div>
                 <div class="input-box">
                     <i class="bi bi-file-lock-fill"></i>
-                    <input type="password" required>
+                    <input type="password" required id="password-user">
                     <label for="password">Password</label>
                 </div>
                 <div class="remember-forgot">
-                    <label for="checkbox"><input type="checkbox">Remember me</label>
-                    <a href="#">Forgot Password?</a>
+                    <label for="checkbox"><input type="checkbox" id="remember-me" >Recuerdame</label>
+                    <a href="#">Olvide mi contraseña?</a>
                     
                     </div>
-                    <button type="submit" class="btn">Login</button> 
+                    <button type="submit" class="btn" id="login-btn">Login</button> 
                     <div class="login-register">
-                        <p>Don't have an account?<a href="#" class="register-link">Register</a></p>
+                        <p>Don't have an account?<a href="#" class="register-link">Registro</a></p>
                     </div>
             </form>
         </div>
@@ -62,23 +62,18 @@
                 <div class="input-box">
                     <i class="bi bi-person-fill"></i>
                     <input type="text" required>
-                    <label for="text">Username</label>
-                </div>
-                <div class="input-box">
-                    <i class="bi bi-person-fill"></i>
-                    <input type="text" required>
-                    <label for="text">Full Name</label>
+                    <label for="text">Nombre Completo</label>
                 </div>
                 <div class="input-box">
                     <i class="bi bi-telephone-fill"></i>
                     <input type="tel" required>
-                    <label for="tel">Phone Number</label>
+                    <label for="tel">Numero de telefono</label>
                 </div>
                 
                 <div class="input-box">
                     <i class="bi bi-person-check-fill"></i>
                     <input type="text" required>
-                    <label for="text">Patient Last Name</label>
+                    <label for="text">Nombre del paciente</label>
                 </div>
                 <div class="input-box">
                     <i class="bi bi-envelope-fill"></i>
@@ -91,15 +86,18 @@
                     <label for="password">Password</label>
                 </div>
                 <div class="remember-forgot">
-                    <label for="checkbox"><input type="checkbox">I agree to terms & conditions</label>
-                    </div>
-                    <button type="submit" class="btn">Register</button> 
-                    <div class="login-register">
-                        <p>Already have an account?<a href="#" class="login-link">Login</a></p>
-                    </div>
+                    <label for="checkbox"><input type="checkbox">Terminos y condiciones</label>
+                </div>
+                <button type="submit" class="btn" id="register-btn">Registro
+                </button> 
+                <div class="login-register">
+                    <p>Ya tienes una cuenta?<a href="#" class="login-link">Login</a></p>
+                </div>
             </form>
         </div>
     </div>
+    <script src="./JS/User.js"></script>
+    <script src="./JS/DB.js"></script>
     <script src="./JS/login.js"></script>
 </body>
 </html>
